@@ -14,3 +14,4 @@ Steps to run and open the application
 2. Navigate to the project folder in cmd prompt
 3. Execute the following command(mvn clean spring-boot:run)
 4. Open in browser - http://localhost:8081
+random text

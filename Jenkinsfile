@@ -63,7 +63,7 @@ pipeline
                            	 			)
                         			]
                    	 		)
-					sh "mvn clean spring-boot:run"
+					//sh "mvn clean spring-boot:run"
                 	}
             	}
         }

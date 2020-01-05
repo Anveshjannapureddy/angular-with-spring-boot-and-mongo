@@ -21,7 +21,7 @@ pipeline
 
            			 // Run Maven on a Unix agent.
            			 sh "mvn clean install -DskipTests"
-				 archiveArtifacts artifacts: 'dist/sampleapplication.zip'
+				 archiveArtifacts artifacts: 'target/sampleapplication.zip'
 
           
          		}
@@ -54,8 +54,8 @@ pipeline
                                 				], 
                                 				transfers:[
                                    					 sshTransfer(
-                                       	 					sourceFiles: 'dist/sampleapplication.zip',
-                                        					//removePrefix: 'dist/',
+                                       	 					sourceFiles: 'target/sampleapplication.zip',
+                                        					removePrefix: 'target/',
                                         					remoteDirectory: '/tmp',
                                         					execCommand: 'sudo /usr/bin/systemctl stop sampleapplication && rm -rf /opt/sampleapplication/* && unzip /tmp/sampleapplication.zip -d /opt/sampleapplication && sudo /usr/bin/systemctl start sampleapplication'
                                     					)

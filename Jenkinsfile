@@ -57,7 +57,7 @@ pipeline
                                        	 					sourceFiles: 'target/demo-0.0.1-SNAPSHOT.jar',
                                         					removePrefix: 'target/',
                                         					remoteDirectory: '/tmp',
-										execCommand: 'sudo /usr/bin/systemctl start demo-0.0.1-SNAPSHOT'
+										execCommand: 'mvn clean spring-boot:run'
                                     					)
                                 				]
                            	 			)

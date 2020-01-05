@@ -57,7 +57,7 @@ pipeline
                                        	 					sourceFiles: 'target/demo-0.0.1-SNAPSHOT.jar',
                                         					removePrefix: 'target/',
                                         					remoteDirectory: '/tmp',
-                                        					execCommand: 'sudo /usr/bin/systemctl stop demo-0.0.1-SNAPSHOT && sudo /usr/bin/systemctl start demo-0.0.1-SNAPSHOT'
+                                        					execCommand: 'sudo systemctl stop demo-0.0.1-SNAPSHOT && sudo systemctl start demo-0.0.1-SNAPSHOT'
                                     					)
                                 				]
                            	 			)

@@ -35,10 +35,10 @@ pipeline
      		 }
 	  stage('DeployToVm')
 		{
-		 when
-			{
-                		branch 'master'
-           		 }
+		 //when
+			//{
+                		//branch 'master'
+           		 //}
 			steps 
 			{
                			 withCredentials([usernamePassword(credentialsId: 'vm_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {

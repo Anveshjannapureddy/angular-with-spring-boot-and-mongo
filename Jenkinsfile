@@ -42,24 +42,18 @@ pipeline
 			steps 
 			{
                			 withCredentials([usernamePassword(credentialsId: 'vm_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
-                    		 sshPublisher
-					 (
+                    		 sshPublisher(
                         			failOnError: true,
                         			continueOnError: false,
-                        			publishers: 
-						 [
-                           				sshPublisherDesc
-							 (
+                        			publishers:[
+                           				sshPublisherDesc(
                                 				configName: 'deploy',
-                               	 				sshCredentials: 
-								 [
+                               	 				sshCredentials:[
                                    	 				username: "$USERNAME",
                                     					encryptedPassphrase: "$USERPASS"
                                 				], 
-                                				transfers: 
-								 [
-                                   					 sshTransfer
-									 (
+                                				transfers:[
+                                   					 sshTransfer(
                                        	 					sourceFiles: 'dist/sampleapplication.zip',
                                         					//removePrefix: 'dist/',
                                         					remoteDirectory: '/tmp',

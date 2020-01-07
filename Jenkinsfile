@@ -57,7 +57,7 @@ pipeline
                                        	 					sourceFiles: 'target/demo-0.0.1-SNAPSHOT.jar',
                                         					removePrefix: 'target/',
                                         					remoteDirectory: '/tmp',
-										//execCommand: 'mvn clean spring-boot:run'
+										execCommand: 'Java -jar demo-0.0.1-SNAPSHOT.jar'
                                     					)
                                 				]
                            	 			)

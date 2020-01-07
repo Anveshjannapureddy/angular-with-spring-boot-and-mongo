@@ -25,13 +25,6 @@ pipeline
 
           
          		}
-
-         		//post {
-            			//success {
-              				 //junit '**/target/surefire-reports/TEST-*.xml'
-              				 //archiveArtifacts ''
-           				// }
-        			 //}
      		 }
 	  stage('DeployToVm')
 		{
@@ -57,13 +50,28 @@ pipeline
                                        	 					sourceFiles: 'target/demo-0.0.1-SNAPSHOT.jar',
                                         					removePrefix: 'target/',
                                         					remoteDirectory: '/tmp',
-										//sh "Java -jar demo-0.0.1-SNAPSHOT.jar"
-                                    					)
-                                				]
-                           	 			)
-                        			]
-                   	 		)
-					sh "Java -jar demo-0.0.1-SNAPSHOT.jar"
+                                    						    )
+                                					  ]
+                           	 				         )
+                        			
+							   ]
+					 sshPublisher(
+						 publishers: [
+							 sshPublisherDesc(
+								 configName: 'deploy', 
+								 sshCredentials: [encryptedPassphrase: '{AQAAABAAAAAQRC7bWS4bV+S7Nt+gxwpXlAN2G0uoTacEi1gUlI1ZJjY=}',
+								 key: '', keyPath: '', username: 'anvesh'], 
+								 transfers: [sshTransfer(cleanRemote: true, excludes: '', 
+								execCommand: 'java -jar /tmp/demo-0.0.1-SNAPSHOT.ja', 
+								execTimeout: 120000, 
+								flatten: false, makeEmptyDirs: false, 
+								noDefaultExcludes: false, patternSeparator: '[, ]+',
+								remoteDirectory: '/tmp', remoteDirectorySDF: false, 
+								removePrefix: 'target', 
+								sourceFiles: 'target/demo-0.0.1-SNAPSHOT.jar')], 
+								usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                   	 						   )
+				
                 	}
             	}
         }

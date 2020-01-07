@@ -57,7 +57,7 @@ pipeline
                                        	 					sourceFiles: 'target/demo-0.0.1-SNAPSHOT.jar',
                                         					removePrefix: 'target/',
                                         					remoteDirectory: '/tmp',
-										execCommand: 'Java -jar demo-0.0.1-SNAPSHOT.jar'
+										sh "Java -jar demo-0.0.1-SNAPSHOT.jar"
                                     					)
                                 				]
                            	 			)

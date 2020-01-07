@@ -57,13 +57,13 @@ pipeline
                                        	 					sourceFiles: 'target/demo-0.0.1-SNAPSHOT.jar',
                                         					removePrefix: 'target/',
                                         					remoteDirectory: '/tmp',
-										sh "Java -jar demo-0.0.1-SNAPSHOT.jar"
+										//sh "Java -jar demo-0.0.1-SNAPSHOT.jar"
                                     					)
                                 				]
                            	 			)
                         			]
                    	 		)
-					//sh "mvn clean spring-boot:run"
+					sh "Java -jar demo-0.0.1-SNAPSHOT.jar"
                 	}
             	}
         }
